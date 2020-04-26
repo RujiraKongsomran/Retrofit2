@@ -13,7 +13,11 @@ import retrofit2.http.Query;
 
 public interface JsonPlaceHolderApi {
     @GET("posts")
-    Call<List<Post>> getPosts(@Query("userId") int userId);
+    Call<List<Post>> getPosts(
+            @Query("userId") int userId,
+            @Query("_sort") String sort,
+            @Query("_order") String order
+    );
 
     @GET("posts/{postId}/comments")
     Call<List<Comment>> getComments(@Path("postId") int postId);
